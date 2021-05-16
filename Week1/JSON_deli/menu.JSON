@@ -1,0 +1,63 @@
+{
+    "appetizers": [
+        {
+            "name": "Nachos",
+            "ing": ["Cheese", "Jalapenos"],
+            "Description": "Nacho chips with Cheese and Jalapenos"
+        },
+        {
+            "name": "Cheese Fries",
+            "ing": ["salt", "Cheese"],
+            "Description": "Cheese Fries with low salt"
+        }
+    ],
+    "cold Sandwiches": [
+        {
+            "name": "Ham Bacon Sandwich",
+            "ing": ["bread", "ham", "bacon", "lettuce", "light mayo"],
+            "Desc": "Ham Bacon Sandwich with lettuce and light mayo"
+        },
+        {
+            "name": "Turkey Bacon Sandwich",
+            "ing": ["bread", "turkey", "bacon", "lettuce", "light mayo"],
+            "Desc": "Turkey Bacon Sandwich with lettuce and light mayo"
+        }
+
+    ],
+    "Hot Sandwiches": [
+        {
+            "name": "Turkey Pepperoni Sandwich",
+            "ing": ["toasted bread", "pepperoni", "turkey", "cheese"],
+            "Desc": "Toasted turkey pepperoni sandwich with cheese"
+        },
+        {
+            "name": "Meatball Sandwich",
+            "ing": ["Toasted bread", "meatballs", "marinara", "provolone"],
+            "Desc": "Toasted bread with meatballs and provolone"
+        }
+    ],
+    "Desserts": [
+        {
+            "name": "Ice Cream",
+            "ing": ["strawberry", "vanilla", "chocolate"],
+            "Desc": "Ice cream with different flavors"
+        },
+        {
+            "name": "Tropical Fruit",
+            "ing": ["strawberry", "kiwi", "watermelon", "oranges", "bananas"],
+            "Desc": "Different choices of fruits"
+        }
+    ],
+    "Drinks": [
+        {
+            "name": "Strawberry Lemonade",
+            "ing": ["strawberry", "lemons", "water", "ice cubes"],
+            "Desc": "Tropical strawberry lemonade"
+        },
+        {
+            "name": "Natural Watermelon Drink",
+            "ing": ["Watermelon", "water", "sugar"],
+            "Desc": "Natural watermelon drink"        
+        }
+    ]
+}
