@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    padding: 0px
+}
+body {
+    background-color: lightseagreen;
+    font-size: 20px;
+    color: lime;
+    
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 35px;
+}
+
+ul, li {
+    border: 2px solid purple;
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
