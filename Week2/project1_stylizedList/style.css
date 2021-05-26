@@ -20,4 +20,5 @@ ul, li {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    font-family: fantasy;
 }
