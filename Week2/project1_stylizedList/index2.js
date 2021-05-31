@@ -39,14 +39,31 @@ const junkWarrior = `{"cards":
 const warrior = JSON.parse(junkWarrior);
 var monsterList = document.getElementById("monster-list")
 var output = '';
+// for (var i = 0; i < warrior.cards.length; i++) {
+//     output += '<li>' + "Name: " + warrior.cards[i].name + "<br><br>" + "level:" + warrior.cards[i].level + "<br><br>" +
+//     "type: " + warrior.cards[i].type + "<br><br>" + "summoning: " + warrior.cards[i].summoning + "<br><br>" + "desc: " + warrior.cards[i].desc +  "<br><br>"
+//     + "Atk: " + warrior.cards[i].atk + "<br><br>" + "Def: " + warrior.cards[i].def + "<br><br>" + "race: " + warrior.cards[i].race + "<br><br>" +
+//     "attribute: " + warrior.cards[i].attribute
+    
+//     '</li>'
+    
+// }
+//Gary Example
 for (var i = 0; i < warrior.cards.length; i++) {
-    output += '<li>' + "Name: " + warrior.cards[i].name + "<br><br>" + "level:" + warrior.cards[i].level + "<br><br>" +
-    "type: " + warrior.cards[i].type + "<br><br>" + "summoning: " + warrior.cards[i].summoning + "<br><br>" + "desc: " + warrior.cards[i].desc +  "<br><br>"
-    + "Atk: " + warrior.cards[i].atk + "<br><br>" + "Def: " + warrior.cards[i].def + "<br><br>" + "race: " + warrior.cards[i].race + "<br><br>" +
-    "attribute: " + warrior.cards[i].attribute
-    
-    '</li>'
-    
+    var li1 = document.createElement('li')
+    li1.textContent =  "attribute: " + warrior.cards[i].attribute
+    monsterList.appendChild(li1)
+    var li2 = document.createElement('li')
+    li2.textContent =  "race: " + warrior.cards[i].race
+    monsterList.appendChild(li1)
+    var li3 = document.createElement('li')
+    li3.textContent =  "Name: " + warrior.cards[i].name
+    monsterList.appendChild(li1)
+    monsterList.appendChild(li2)
+    monsterList.appendChild(li3)
+
+
+
 }
-monsterList.innerHTML = output;
+// monsterList.innerHTML = output;
 console.log(warrior)
