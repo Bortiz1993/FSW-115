@@ -1,0 +1,76 @@
+html {
+    height: 200vh;
+    background: linear-gradient(#6164ff,#3409ac);
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    color: #0f222d;
+    background-size: auto;
+}
+ul#list{
+    color: white;
+    font-size: 15px;
+    font-family: Impact;
+}
+h1 {
+    text-align: center;
+    font-family: Georgia;
+    color:rgb(0, 49, 155);
+}
+
+#nav {
+position:static;
+list-style-type: none;
+text-align:left;
+}
+#nav a {
+    background-color: red;
+    border: 2px solid black;
+    text-decoration: none;
+    color:orange;
+}
+
+.mainDiv{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+button{
+    font-family: Impact;
+    font-size: 1.5em;
+    color: #53BDFF;
+    background-color: rgb(0, 4, 253);
+    outline: 0;
+    border: 5px solid;
+    width: 390px;
+    height: 100px;
+  
+  }
+
+  /*Mobile*/
+  @media only screen and (min-width: 360px) and (max-width: 720px){
+    button {
+        width: 200px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    .mainDiv {
+    width: auto;
+     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    }
+  }
+
+/*Tablet*/
+@media only screen and (min-width: 721px) and (max-width: 1024px){
+
+.mainDiv {
+    align-items: center;
+}
+
+}

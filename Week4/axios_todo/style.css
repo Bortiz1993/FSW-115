@@ -18,6 +18,10 @@ html{
     text-align: center;
     color: black;
   }
+
+  ul{
+color: crimson;
+}
   form{
     background-color: #fff;
     padding: 15px;
@@ -40,7 +44,7 @@ html{
     width: 50px;
   
   }
-  .tasksBoard{
+  .todoBoard{
     background-color: green;
     margin-top: 20px;
     padding-top: 10px;
