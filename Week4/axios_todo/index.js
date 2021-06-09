@@ -1,6 +1,18 @@
 
 loadEvents();
-
+let todoBoard = document.querySelector('.todoBoard')
+axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
+ .then(response => {
+ for(let i = 0; i < response.data.length; i++){
+     let ul = document.querySelector('ul');
+     const li = document.createElement('li')
+     li.innerHTML = `<span class="delete">x</span><input type="checkbox"><label>${response.data[i].name} </label>`;
+     ul.appendChild(li);
+   
+ }
+})
+.catch(err => console.log(err))
+ todoBoard.style.display = 'block';
 // load every event in the page
 function loadEvents(){
   document.querySelector('form').addEventListener('submit',submit);
@@ -12,29 +24,12 @@ function submit(e){
   e.preventDefault();
   let input = document.querySelector('input');
   if(input.value != '')
-    addTodo(input.value);
+    getTodo(input.value);
   input.value = '';
 }
 
-// add tasks
-function addTodo(){
-  let todoBoard = document.querySelector('.todoBoard')
- axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
-  .then(response => {
-  for(let i = 0; i < response.data.length; i++){
-      let ul = document.querySelector('ul');
-      const li = document.createElement('li')
-      li.innerHTML = `<span class="delete">x</span><input type="checkbox"><label>${response.data[i].name} </label>`;
-      ul.appendChild(li);
-    
-  }
-})
-.catch(err => console.log(err))
-  todoBoard.style.display = 'block';
-  
-}
-
-// clear the list
+// get todo function.
+// clear the list.
 function clearList(e){
   let ul2 = document.querySelector('ul').innerHTML = '';
   }

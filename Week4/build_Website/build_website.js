@@ -16,6 +16,7 @@ const appendToDOM = (data) => {
 const fetchData = () => {
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Code Talker')
         .then(response => {
+            console.log(response)
             const responseData = response.data.data;
             console.log(`GET list of Code Talkers`, responseData);
             // append to DOM
