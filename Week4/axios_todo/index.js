@@ -24,11 +24,10 @@ function submit(e){
   e.preventDefault();
   let input = document.querySelector('input');
   if(input.value != '')
-    getTodo(input.value);
+    (input.value);
   input.value = '';
 }
 
-// get todo function.
 // clear the list.
 function clearList(e){
   let ul2 = document.querySelector('ul').innerHTML = '';
