@@ -7,7 +7,7 @@ axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
  for(let i = 0; i < response.data.length; i++){
      let ul = document.querySelector('ul');
      const li = document.createElement('li')
-     li.innerHTML = `<span class="delete">x</span><input type="checkbox"><label>${response.data[i].name} </label>`;
+     li.innerHTML = `<span class="delete">x</span><input name="checkbox" type="checkbox"><label>${response.data[i].name} </label>`;
      ul.appendChild(li);
     todoBoard.style.display = 'block';
  }
@@ -24,7 +24,7 @@ function loadEvents(){
 function postTodo(todo){
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
-  li.innerHTML = `<span class = "delete">x</span><input type="checkbox"><label>${todo}</label>`
+  li.innerHTML = `<span class = "delete">x</span><input name="checkbox" type="checkbox"><label>${todo}</label>`
   ul.append(li);
   todoBoard.style.display = 'block';
 }
@@ -85,6 +85,16 @@ function clearList(e){
     if(e.target.checked){
       todo.style.textDecoration = "line-through";
       todo.style.color = "#ff0000";
+
+      //PUT request
+    todo.onchange = e => {
+    let newData = {isComplete: todo.checked}
+    let guid = todo.value
+
+    axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${guid}`, newData)
+      }
+
+
     }else {
       todo.style.textDecoration = "none";
       todo.style.color = "#2f4f4f";
