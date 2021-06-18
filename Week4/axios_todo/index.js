@@ -7,9 +7,32 @@ axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
  for(let i = 0; i < response.data.length; i++){
      let ul = document.querySelector('ul');
      const li = document.createElement('li')
-     li.innerHTML = `<span class="delete">x</span><input name="checkbox" type="checkbox"><label>${response.data[i].name} </label>`;
+     li.innerHTML = `<span class="delete">x</span><input id="checkbox" type="checkbox"><label>${response.data[i].name} </label>`;
      ul.appendChild(li);
     todoBoard.style.display = 'block';
+
+    //Gary Fishback Code PUT Request with Checkbox.
+    // console.log(response.data[i].isComplete)
+    // if(document.getElementById('checkbox').)
+    //document.getElementById('checkbox').addEventListener('click', function(){
+      //if(document.getElementById('checkbox').checked === true && response.data[i].isComplete === false){
+       // console.log('hello')
+      //}
+    //})
+    //var checkbox = document.createElement('input')
+    //checkbox.type = "checkbox"
+   // li.appendChild(checkbox)
+    //if(response.data[i].isComplete === true){
+   //   checkbox.checked =true
+    //  axios.put
+   // }
+
+    // if( === true){
+    //   axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${guid}`, newData)
+    
+    // }
+   // console.log(document.getElementById('checkbox').checked)
+    
  }
 })
 .catch(err => console.log(err))
@@ -24,7 +47,7 @@ function loadEvents(){
 function postTodo(todo){
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
-  li.innerHTML = `<span class = "delete">x</span><input name="checkbox" type="checkbox"><label>${todo}</label>`
+  li.innerHTML = `<span class = "delete">x</span><input id="checkbox" type="checkbox"><label>${todo}</label>`
   ul.append(li);
   todoBoard.style.display = 'block';
 }
@@ -35,7 +58,8 @@ function submit(e){
   const newTodo = {
     name: todoForm.title.value,
     description: todoForm.description.value,
-    price: todoForm.price.value
+    price: todoForm.price.value,
+    isComplete: todoForm.isComplete.value
   }
   axios.post('http://api.bryanuniversity.edu/YuseiFudo/list/', newTodo)
   .then(res => console.log(res))
@@ -87,13 +111,14 @@ function clearList(e){
       todo.style.color = "#ff0000";
 
       //PUT request
-    todo.onchange = e => {
-    let newData = {isComplete: todo.checked}
-    let guid = todo.value
+    const putTodo = document.getElementById("checkbox").value
+    console.log(putTodo)
+   // putTodo.onchange = e => {
+    let newData = {isComplete: putTodo.checked}
+    let guid = putTodo.value
 
     axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${guid}`, newData)
-      }
-
+    //  }
 
     }else {
       todo.style.textDecoration = "none";
