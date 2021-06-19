@@ -3,13 +3,19 @@ loadEvents();
 //Get todo
 let todoBoard = document.querySelector('.todoBoard')
 axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
- .then(response => {
+ .then(response => { console.log(response.data)
  for(let i = 0; i < response.data.length; i++){
      let ul = document.querySelector('ul');
      const li = document.createElement('li')
-     li.innerHTML = `<span class="delete">x</span><input id="checkbox" type="checkbox"><label>${response.data[i].name} </label>`;
+     li.id = response.data[i]._id
+     li.innerHTML = `<span class="delete">x</span><input id="checkbox" type="checkbox" ${response.data[i].isComplete? "checked = true": " "}><label>${response.data[i].name} </label>`;
      ul.appendChild(li);
     todoBoard.style.display = 'block';
+//ternary ? statement === a better if statement ({response.data[i].isComplete? "checked = true": " "})
+    if(response.data[i].isComplete){
+      li.style.textDecoration = "line-through";
+      li.style.color = "#ff0000";
+    }
 
     //Gary Fishback Code PUT Request with Checkbox.
     // console.log(response.data[i].isComplete)
@@ -47,7 +53,8 @@ function loadEvents(){
 function postTodo(todo){
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
-  li.innerHTML = `<span class = "delete">x</span><input id="checkbox" type="checkbox"><label>${todo}</label>`
+  li.id = response.data[i]._id
+  li.innerHTML = `<span class = "delete">x</span><input id="checkbox" type="checkbox" ${response.data[i].isComplete? "checked = true": " "}><label>${todo}</label>`
   ul.append(li);
   todoBoard.style.display = 'block';
 }
@@ -79,9 +86,8 @@ function submit(e){
   if(input3.value != '')
   postTodo(input3.value);
   input3.value = '';
-
+  
 }
-
 // clear the list.
 function clearList(e){
  document.querySelector('ul').innerHTML = '';
@@ -98,33 +104,37 @@ function clearList(e){
   
   // delete todo
   function deleteTodo(e){
-    let remove = e.target.parentNode;
-    let parentNode = remove.parentNode;
-    parentNode.removeChild(remove);
+    console.log(e.target)
+    console.log(e.target.parentNode)
+    let remove = e.target.parentNode
+    console.log(remove.id)
+    axios.delete(`http://api.bryanuniversity.edu/YuseiFudo/list/${remove.id}`).then(response => {
+      
+      console.log(response)
+      let parentNode = remove.parentNode;
+      parentNode.removeChild(remove);
+      
+    })
   }
-  
   // tick a todo
   function lineTodo(e){
-    const todo = e.target.nextSibling;
-    if(e.target.checked){
-      todo.style.textDecoration = "line-through";
-      todo.style.color = "#ff0000";
-
+    console.log(e.target)
+    
+    const todo = e.target.parentNode;
+      console.log(todo)
       //PUT request
-    const putTodo = document.getElementById("checkbox").value
-    console.log(putTodo)
-   // putTodo.onchange = e => {
-    let newData = {isComplete: putTodo.checked}
-    let guid = putTodo.value
-
-    axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${guid}`, newData)
-    //  }
-
-    }else {
-      todo.style.textDecoration = "none";
-      todo.style.color = "#2f4f4f";
-    }
-  }
-
+       let newData = {isComplete: e.target.checked === "true"? true: false}
   
+    const axios2 = axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${todo.id}`, newData).then(response =>{
+      console.log(response)
+      if(newData.isComplete){
+        todo.style.textDecoration = "line-through";
+        todo.style.color = "#ff0000";
+      }else {
+        todo.style.textDecoration = "none";
+        todo.style.color = "#2f4f4f";
+      }
+    })
+    
+  }
 console.log(axios)
