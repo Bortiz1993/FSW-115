@@ -2,7 +2,7 @@ html{
     height: 100%;
     background-image: linear-gradient(#61ff69,#b4ff76);
     background-repeat: no-repeat;
-    font-family: sans-serif;
+    font-family: Impact;
     color: #0f222d;
     background-size: auto;
   }
@@ -77,6 +77,9 @@ color: crimson;
     cursor: pointer;
   }
   
+  /*Mobile looks good by default: 360min and 720max*/
+
+  /*tablet*/
   @media (max-width: 500px) {
     .main{
       margin: auto;
