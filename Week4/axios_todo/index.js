@@ -11,6 +11,14 @@ axios.get('http://api.bryanuniversity.edu/YuseiFudo/list/')
      li.innerHTML = `<span class="delete">x</span><input id="checkbox" type="checkbox" ${response.data[i].isComplete? "checked = true": " "}><label>${response.data[i].name} ${response.data[i].description} ${response.data[i].price} </label>`;
      ul.appendChild(li);
     todoBoard.style.display = 'block';
+
+    if(response.data[i].isComplete){
+      li.style.textDecoration = "line-through";
+      li.style.color = "#ff0000";
+    }else {
+      li.style.textDecoration = "none";
+      li.style.color = "#2f4f4f";
+    }
  }
 })
 .catch(err => console.log(err))
@@ -77,12 +85,12 @@ function clearList(e){
     const todo = e.target.parentNode;
       console.log(todo)
 
-       let newData = {isComplete: e.target.checked === "true" || "false"? true:false}
-       console.log(newData)
+       let newData = {isComplete: e.target.checked}
+       console.log(typeof newData, newData)
   //Axios PUT
       axios.put(`http://api.bryanuniversity.edu/YuseiFudo/list/${todo.id}`, newData).then(response =>{
       console.log(response)
-      if(newData){
+      if(newData.isComplete){
         todo.style.textDecoration = "line-through";
         todo.style.color = "#ff0000";
       }else {
