@@ -1,0 +1,138 @@
+html{
+    height: 103%;
+    background-image: linear-gradient(#052561,#4100d8d7);
+    background-repeat: no-repeat;
+    font-family: Impact;
+    color: #ffee00;
+    background-size: auto;
+  }
+
+  h1{
+      text-align: center;
+  }
+
+  #getContainer1{
+      color: sandybrown;
+      font-size: 40px;
+      display: flex;
+      border: 9px rgb(117, 255, 135) solid;
+      height: 175px;
+      width: 175px;
+      border-radius: 50%;
+      align-items: center;
+      background-size: cover;
+      margin-left: 650px;
+
+  }
+
+  #getContainer2{
+      font-size: 30px;
+      display: flex;
+      border: 9px greenyellow solid;
+      height: 200px;
+      width: 200px;
+      text-align:  center;
+      background-size: cover;
+      margin-left: 650px;
+      
+  }
+
+  #getContainer{
+      color: green;
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+      border: 9px rgb(0, 255, 85) solid;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      background-size: cover;
+      margin-left: 650px;
+  }
+
+  /*Mobile*/
+  @media only screen and (min-width: 360px) and (max-width: 720px){
+      html{
+          height: 450%;
+          width: 450%;
+          font-size: 40px;
+      }
+
+      #getContainer1{
+          height: 300px;
+          width: 300px;
+          margin-top: 200px;
+          height: 600px;
+          width: 600px;
+          margin-left: 450px;
+          font-size: 100px;
+      }
+
+      #getContainer2{
+          height: 300px;
+          width: 300px;
+          font-size: 75px;
+          margin-top: 150px ;
+          height: 600px;
+          width: 600px;
+          margin-left: 450px;
+      }
+
+      #getContainer{
+          height: 300px;
+          width: 300px;
+          font-size: 80px;
+          margin-top: 175px;
+          height: 600px;
+          width: 600px;
+          margin-left:450px ;
+      }
+  }
+
+  /*Tablet*/
+  @media only screen and (min-width: 721px) and (max-width: 1024px){
+    html{
+        height: 150%;
+        width: 100%;
+        font-size: 15px;
+    }
+    #getContainer1{
+
+        margin-left: 250px;
+        margin-top: 90px;
+    }
+
+    #getContainer2{
+        margin-left: 250px;
+        margin-top: 90px; 
+    }
+
+    #getContainer{
+        margin-left: 250px;
+        margin-top: 80px;
+    }
+  }
+
+  /*laptop L*/
+  @media only screen and (min-width: 1024px) and (max-width: 1440px){
+      #getContainer1{
+        margin-top: 45px;
+        height: 225px;
+        width: 225px;
+        margin-left: 575px;
+      }
+
+      #getContainer2{
+        margin-top: 50px;
+        height: 225px;
+        width: 225px;
+        margin-left: 575px;
+      }
+
+      #getContainer{
+        margin-top: 50px;
+        height: 225px;
+        width: 225px;
+        margin-left: 575px;
+      }
+  }
