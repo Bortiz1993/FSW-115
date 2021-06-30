@@ -9,21 +9,15 @@ const getData = async () => {
         const homeworld = await axios.get(response.data.homeworld)
         const residents = await axios.get(homeworld.data.residents[0])
         const lukeFilms = await axios.get(homeworld.data.films[0])
+        
         //test for Promise.all()
-        const filmPromises = []
-        for(let i = 0; i < lukeFilms.length; i++){
-            filmPromises.push(axios.get(lukeFilms[i]))
-        }
-
+       
         console.log(response)
         console.log(homeworld)
         console.log(lukeFilms)
         console.log(residents)
         //console.log(filmPromises)
-         Promise.all(filmPromises)
-
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
+         
 
         displayData( homeworld, lukeFilms, residents)
     }
@@ -35,7 +29,21 @@ const getData = async () => {
     
 }
 
+async function getAllLukeData(){
+    const Luke = await axios.get('https://swapi.dev/api/people/1')
+    const lukeAllFilms = Luke.data.films
+const filmPromises = []
+for(let i = 0; i < lukeAllFilms.length; i++){
+    filmPromises.push(axios.get(lukeAllFilms[i]))
+}
+
+Promise.all(filmPromises)
+      .then(response => console.log(response))
+        .catch(err => console.log(err))
+}
+
 getData()
+getAllLukeData()
 
 function displayData( homeworld, lukeFilms, residents){
 
